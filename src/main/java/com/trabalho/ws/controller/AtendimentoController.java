@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,11 +14,13 @@ import com.trabalho.ws.domain.Atendimento;
 import com.trabalho.ws.service.AtendimentoService;
 
 @RestController
+@RequestMapping("/loged")
 public class AtendimentoController {
 
 	@Autowired
 	private AtendimentoService atendimentoService;
 	
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/atendimento", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Atendimento> cadastrarAtendimento(@RequestBody Atendimento atendimento){
 		Atendimento atendimentoNovo = atendimentoService.salvarAtendimento(atendimento);

@@ -8,8 +8,9 @@ import org.springframework.stereotype.Repository;
 import com.trabalho.ws.domain.Cliente;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
+public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 	
-	@Query(value = "SELECT cliente FROM Cliente cliente WHERE cliente.usuario=:paramUsuario")
-	public Cliente buscaUsuarioCliente(@Param("paramUsuario") String usuario);
+	@Query(value = "SELECT c FROM Cliente c WHERE c.usuario=:pusuario AND c.senha=:psenha")
+	public Cliente buscarClientePorLogin(@Param("pusuario") String usuario, @Param("psenha") String senha);
+
 }

@@ -12,16 +12,14 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
-	public Cliente login(Cliente cliente){
-		Cliente clienteLogado = null;
-		clienteLogado = clienteRepository.buscaUsuarioCliente(cliente.getUsuario());
-		if(clienteLogado != null){
-			if(clienteLogado.getUsuario().equals(cliente.getUsuario()) && clienteLogado.getSenha().equals(cliente.getSenha())){
-				return clienteLogado;
-			}
+	public Cliente buscarCliente(Cliente clienteFromJson){
+		Cliente cliente = new Cliente();
+		
+		cliente = clienteRepository.buscarClientePorLogin(clienteFromJson.getUsuario(), clienteFromJson.getSenha());
+		if(cliente == null){
+			System.out.println("CLIENTE NAO ENCONTRADO");
 		}
-		return null;
+		return cliente;
 	}
-	
 	
 }

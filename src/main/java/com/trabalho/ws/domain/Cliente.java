@@ -17,13 +17,13 @@ public class Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name = "id_cliente", nullable = false)
+	@Column(name = "id_cliente", nullable=true)
 	private Integer id;
 	@Column(name = "usuario", nullable = false)
 	private String usuario;
 	@Column(name = "senha", nullable = false)
 	private String senha;
-	@Column(name = "saldo", nullable = false)
+	@Column(name = "saldo", nullable=true)
 	private Double saldo;
 	
 	public Integer getId() {
