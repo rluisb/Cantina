@@ -25,7 +25,7 @@ public class ClienteController {
 	private ClienteService clienteService;
 
 	@CrossOrigin(origins = "*")
-	@RequestMapping(value = "/autenticar", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
+	@RequestMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	public LoginReponse autentucar(@RequestBody Cliente clienteFromJson) throws ServletException {
 		System.out.println(clienteFromJson);
 

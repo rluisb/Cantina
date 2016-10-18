@@ -24,7 +24,7 @@ public class TokenFilter extends GenericFilterBean{
 		
 		System.out.println(authorization);
 		
-		if(authorization.equals(null)){
+		if(authorization.equals(null) || !authorization.startsWith("Bearer ")){
 			throw new ServletException("TOKEN INVALIDO OU INEXISTENTE!");
 		}
 		
