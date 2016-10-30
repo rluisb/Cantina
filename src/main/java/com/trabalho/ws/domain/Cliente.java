@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.trabalho.ws.controller.ClienteController.LoginReponse;
 
 @Entity
 @Table(name = "cliente")
@@ -25,6 +28,8 @@ public class Cliente implements Serializable{
 	private String senha;
 	@Column(name = "saldo", nullable=true)
 	private Double saldo;
+	@Transient
+	private LoginReponse token;
 	
 	public Integer getId() {
 		return id;
@@ -49,6 +54,12 @@ public class Cliente implements Serializable{
 	}
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
+	}
+	public LoginReponse getToken() {
+		return token;
+	}
+	public void setToken(LoginReponse token) {
+		this.token = token;
 	}
 	@Override
 	public String toString() {

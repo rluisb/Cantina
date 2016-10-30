@@ -1,6 +1,5 @@
 package com.trabalho.ws.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,7 +17,7 @@ public class Atendimento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_atendimento", nullable = false)
 	private Integer id;
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.LAZY)
 	private Pedido pedido;
 	@Column(name = "status", nullable = false)
 	private String status;
